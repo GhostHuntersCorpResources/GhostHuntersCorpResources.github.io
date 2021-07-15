@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+body {
+    background-color:#00ff00;
+}
+
 :root {
     --wrapper-close-animation: 3%;
     --wrapper-open-animation: 17%;
