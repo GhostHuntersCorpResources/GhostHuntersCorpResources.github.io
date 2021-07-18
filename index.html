@@ -9,45 +9,58 @@
 </head>
 <body>
 
+    <button onclick="setBackgroundColour()">Set BG Colour</button>
 
-  <div id='wrapper' class="wrapper-close">
-    <div id='cover' class="left" onclick="bookAnimation()"><img src='cover.jpeg' width="100%" height="100%"></div>
+    <div id='wrapper' class="wrapper-close">
+        <div id='cover' class="left" onclick="bookAnimation()"><img src='cover.jpeg' width="100%" height="100%"></div>
 
-    <div id="bookEdgeLeft"></div>
-    <div id='middle' class="left-2" onclick="bookAnimation()"><p>You who haunt this place, in the name of the Lord, I command you to go back where you came from!<br><br> Let your soul return to the earth. Let your body return to the dust! <br><br> So be the will of God!</p></div>
-    <div id="bookEdgeRight"></div>
+        <div id="bookEdgeLeft"></div>
+        <div id='middle' class="left-2" onclick="bookAnimation()"><p>You who haunt this place, in the name of the Lord, I command you to go back where you came from!<br><br> Let your soul return to the earth. Let your body return to the dust! <br><br> So be the will of God!</p></div>
+        <div id="bookEdgeRight"></div>
 
-    <div id='endpage' class="right" onclick="bookAnimation()"></div>
-  </div>
+        <div id='endpage' class="right" onclick="bookAnimation()"></div>
+    </div>
 
-  <script>
-    
-    function bookAnimation() {
-  if (document.getElementById('middle').className=='left-2' || document.getElementById('middle').className=='left-2-close') {
-        document.getElementById('middle').className='left-2-open';
-        document.getElementById('cover').className='left-open';
-        document.getElementById('wrapper').className='wrapper-open';
+    <script>
+
+        var backgroundState = 0;
+        var backgroundColours = ["#0f0", "#fff", "#bbb"];
+
+        function setBackgroundColour() {
+
+            document.body.style.backgroundColor = backgroundColours[backgroundState++];
+
+            if (backgroundState > 2) backgroundState = 0;
+        }
+
+        function bookAnimation() {
+            if (document.getElementById('middle').className == 'left-2' || document.getElementById('middle').className == 'left-2-close') {
+                document.getElementById('middle').className = 'left-2-open';
+                document.getElementById('cover').className = 'left-open';
+                document.getElementById('wrapper').className = 'wrapper-open';
 
 
-        document.getElementById('bookEdgeLeft').className='bookEdge-open';
-        
-        document.getElementById('bookEdgeRight').className='rightBookEdge-open';
+                document.getElementById('bookEdgeLeft').className = 'bookEdge-open';
+
+                document.getElementById('bookEdgeRight').className = 'rightBookEdge-open';
 
 
-      } else {
-        document.getElementById('middle').className='left-2-close';
-        document.getElementById('cover').className='left-close';
-        document.getElementById('wrapper').className='wrapper-close';
+            } else {
+                document.getElementById('middle').className = 'left-2-close';
+                document.getElementById('cover').className = 'left-close';
+                document.getElementById('wrapper').className = 'wrapper-close';
 
 
-        document.getElementById('bookEdgeLeft').className='bookEdge-close';
-        document.getElementById('bookEdgeRight').className='rightBookEdge-close';
+                document.getElementById('bookEdgeLeft').className = 'bookEdge-close';
+                document.getElementById('bookEdgeRight').className = 'rightBookEdge-close';
 
-      }
-        
-    }
+            }
 
-  </script>
-    
+        }
+
+        setBackgroundColour();
+
+    </script>
+
 </body>
 </html>
